@@ -10,12 +10,12 @@ services:
         - "1026:1026"
     command: -dbhost mongo-db -logLevel DEBUG
   mongo-db:
-    image: mongo:latest
+    image: mongo:3.6
     ports:
         - "27017:27017"
     networks:
         - default
-    command: --bind_ip_all 
+    command: --bind_ip_all --smallfiles
   cygnus:
     image: fiware/cygnus-ngsi:latest
     depends_on:
